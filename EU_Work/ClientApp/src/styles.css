@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+
+@font-face {
+  font-family: FiraSans-Ultra; 
+   src: url("assets/font/FiraSans-Ultra.otf") format("opentype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
+@font-face {
+  font-family: FiraSans-Regular; 
+   src: url("assets/font/FiraSans-Regular.otf") format("opentype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
+@font-face {
+  font-family: FiraSans-Medium; 
+   src: url("assets/font/FiraSans-Medium.otf") format("opentype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
+
+a {
+  color: #0366d6;
+  font-family: FiraSans-Medium;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+body{
+  font-family: FiraSans-Regular;
+  /* background-color: #e5ebee; */
+}

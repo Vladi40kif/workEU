@@ -1,0 +1,25 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  /* word-break: break-all; */
+}
+
+nav {
+  font-size: 14px;
+  font-family: FiraSans-Ultra;
+  background-color: #314273;
+  padding: 0px;
+  
+}
+nav span{
+  color: #dedbdb;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
