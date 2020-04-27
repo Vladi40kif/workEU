@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
+  
+  public nonTop: number;
+
+  @HostListener('window:scroll', ['$event']) detect(event) {
+      this.nonTop = window.pageYOffset;
+    }
   isExpanded = false;
 
   collapse() {
