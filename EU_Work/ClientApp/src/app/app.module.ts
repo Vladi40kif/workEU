@@ -32,7 +32,8 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', redirectTo: "home", pathMatch: 'full' },
+      { path: 'home', component: HomeComponent, pathMatch: 'full' },
       { path: 'about', component: AboutComponent, pathMatch: 'full' },
       { path: 'work', component: WorkComponent, pathMatch: 'full' },
       { path: 'taks', component: TaksComponent, pathMatch: 'full' },

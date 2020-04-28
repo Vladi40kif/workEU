@@ -1,7 +1,6 @@
 a.navbar-brand {
   white-space: normal;
   text-align: center;
-  /* word-break: break-all; */
 }
 
 nav {
@@ -9,7 +8,6 @@ nav {
   font-family: FiraSans-Ultra;
   background-color: #314273;
   padding: 0px;
-  
 }
 nav span{
   color: #dedbdb;
