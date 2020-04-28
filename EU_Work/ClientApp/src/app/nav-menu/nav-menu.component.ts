@@ -1,9 +1,11 @@
 import { Component, HostListener } from '@angular/core';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.css']
+  styleUrls: ['./nav-menu.component.css'],
+
 })
 export class NavMenuComponent {
   

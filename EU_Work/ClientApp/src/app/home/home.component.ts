@@ -6,12 +6,4 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HomeComponent {
 
-  public onTop: number;
-
-  @HostListener('window:scroll', ['$event']) 
-    doSomething(event) {
-      this.onTop = window.pageYOffset;
-      //console.log("Scroll Event", window.pageYOffset );
-    }
-
 }

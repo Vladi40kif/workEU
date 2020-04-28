@@ -9,6 +9,10 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
+import { FooterComponent } from './footer/footer.component';
+import { WorkComponent } from './work/work.component';
+import { TaksComponent } from './taks/taks.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -16,7 +20,11 @@ import { CarouselComponent } from './home/carousel/carousel.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CarouselComponent
+    CarouselComponent,
+    FooterComponent,
+    WorkComponent,
+    TaksComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,7 +32,10 @@ import { CarouselComponent } from './home/carousel/carousel.component';
     FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'about', component: AboutComponent, pathMatch: 'full' },
+      { path: 'work', component: WorkComponent, pathMatch: 'full' },
+      { path: 'taks', component: TaksComponent, pathMatch: 'full' },
     ])
   ],
   providers: [],

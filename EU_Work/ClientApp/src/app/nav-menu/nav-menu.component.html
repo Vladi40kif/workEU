@@ -1,11 +1,11 @@
 
 <div class="fixed-top">
-  <ng-template [ngIf]="!nonTop">
+  <ng-template [ngIf]="!nonTop" >
     
-    <div class="row" style="background-color: #aedcee;">
+    <div class="row text-white" style="background-color: #383d41;">
 
       <a class="col" style="text-align: right">
-        <h1> AgencyEU </h1>
+        <h1> <a routerLink="/" routerLinkActive="active" style="color: white;"> AgencyEU </a></h1>
       </a>
 
       <div class="col" style="text-align: left">
@@ -28,13 +28,13 @@
       <div class="navbar-expand d-sm-inline-flex flex-sm-row-reverse">
         <ul class="navbar-nav flex-grow">
           <li class="nav-item">
-            <a class="nav-link" style="font-size: 16px;">Робота</a>
+            <a routerLink="/work" routerLinkActive="active" class="nav-link" style="font-size: 16px;">Робота</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: 16px;" >Повернення податку</a>
+            <a routerLink="/taks" routerLinkActive="active" class="nav-link" style="font-size: 16px;" >Повернення податку</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: 16px;" >Про нас</a>
+            <a routerLink="/about" routerLinkActive="active" class="nav-link" style="font-size: 16px;" >Про нас</a>
           </li>
         </ul>
       </div>
@@ -48,7 +48,7 @@
       <div class="container row-10">
 
         <a class="col navbar-brand text-white">
-          <h1> AgencyEU </h1>
+          <h1><a routerLink="/" routerLinkActive="active" style="color: white;"> AgencyEU </a> </h1>
         </a>
               
         <div class="col justify-self-center">
@@ -63,13 +63,13 @@
         <div class="col navbar-expand d-sm-inline-flex flex-sm-row-reverse">
           <ul class="navbar-nav flex-grow">
             <li class="nav-item">
-              <a class="nav-link">Робота</a>
+              <a routerLink="/work" routerLinkActive="active" class="nav-link">Робота</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Повернення податку</a>
+              <a routerLink="/taks" routerLinkActive="active" class="nav-link">Повернення податку</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Про нас</a>
+              <a routerLink="/about" routerLinkActive="active" class="nav-link">Про нас</a>
             </li>
           </ul>
         </div>
