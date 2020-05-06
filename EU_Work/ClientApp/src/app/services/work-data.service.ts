@@ -27,5 +27,8 @@ export class WorkDataService implements OnInit {
   public send(){
     console.log(this.model.Form);
   }
+  public rm(ind){
+    (this.model.Form.controls['educations'] as FormArray).removeAt(ind);
+  }
 
 }

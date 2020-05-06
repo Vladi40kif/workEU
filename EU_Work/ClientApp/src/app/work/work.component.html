@@ -24,7 +24,8 @@
       </div>
     </div>
 
-    <div *ngFor="let i of this.service.model.Form.controls['educations']['controls']">
+    <div *ngFor="let i of this.service.model.Form.controls['educations']['controls']; let ind = index">
+      <hr />
       <form [formGroup] = "i"> 
         <div class="form-row"> 
           <div class="col-md-6 mb-3">
@@ -52,12 +53,17 @@
             <label for="Stop">Stop study</label>
             <input type="date" class="form-control" id="Stop" formControlName="Stop">
           </div>
-        </div>
+          
+          <div class="col align-self-end">
+            <button *ngIf="ind != 0" class="btn btn btn-danger align-self-end" (click)="this.service.rm(ind)" style="margin-bottom: 10px;" >Delete item</button>
+          </div>
+   
+          </div>
       </form>
     </div>
 
     <button class="btn btn-primary" (click)="this.service.addEducations()" >add</button>
- 
+    <hr />
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
