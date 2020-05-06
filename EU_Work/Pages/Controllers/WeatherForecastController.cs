@@ -22,7 +22,7 @@ namespace EU_Work.Controllers
         {
             _logger = logger;
         }
-
+        /*
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
@@ -35,5 +35,6 @@ namespace EU_Work.Controllers
             })
             .ToArray();
         }
+        */
     }
 }

@@ -13,7 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,49 +30,53 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\.editorconfig" />
-    <None Remove="ClientApp\.gitignore" />
-    <None Remove="ClientApp\angular.json" />
-    <None Remove="ClientApp\browserslist" />
-    <None Remove="ClientApp\e2e\protractor.conf.js" />
-    <None Remove="ClientApp\e2e\src\app.e2e-spec.ts" />
-    <None Remove="ClientApp\e2e\src\app.po.ts" />
-    <None Remove="ClientApp\e2e\tsconfig.e2e.json" />
-    <None Remove="ClientApp\package-lock.json" />
-    <None Remove="ClientApp\package.json" />
-    <None Remove="ClientApp\README.md" />
-    <None Remove="ClientApp\src\app\app.component.html" />
-    <None Remove="ClientApp\src\app\app.component.ts" />
-    <None Remove="ClientApp\src\app\app.module.ts" />
-    <None Remove="ClientApp\src\app\app.server.module.ts" />
-    <None Remove="ClientApp\src\app\counter\counter.component.html" />
-    <None Remove="ClientApp\src\app\counter\counter.component.spec.ts" />
-    <None Remove="ClientApp\src\app\counter\counter.component.ts" />
-    <None Remove="ClientApp\src\app\fetch-data\fetch-data.component.html" />
-    <None Remove="ClientApp\src\app\fetch-data\fetch-data.component.ts" />
-    <None Remove="ClientApp\src\app\home\home.component.html" />
-    <None Remove="ClientApp\src\app\home\home.component.ts" />
-    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.css" />
-    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.html" />
-    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
-    <None Remove="ClientApp\src\assets\.gitkeep" />
-    <None Remove="ClientApp\src\assets\img\slider\insurance.jpg" />
-    <None Remove="ClientApp\src\assets\img\slider\passport.jpg" />
-    <None Remove="ClientApp\src\assets\img\slider\work.jpg" />
-    <None Remove="ClientApp\src\environments\environment.prod.ts" />
-    <None Remove="ClientApp\src\environments\environment.ts" />
-    <None Remove="ClientApp\src\index.html" />
-    <None Remove="ClientApp\src\karma.conf.js" />
-    <None Remove="ClientApp\src\main.ts" />
-    <None Remove="ClientApp\src\polyfills.ts" />
-    <None Remove="ClientApp\src\styles.css" />
-    <None Remove="ClientApp\src\test.ts" />
-    <None Remove="ClientApp\src\tsconfig.app.json" />
-    <None Remove="ClientApp\src\tsconfig.server.json" />
-    <None Remove="ClientApp\src\tsconfig.spec.json" />
-    <None Remove="ClientApp\src\tslint.json" />
-    <None Remove="ClientApp\tsconfig.json" />
-    <None Remove="ClientApp\tslint.json" />
+    <None Remove="ClientApp\src\app\about\about.component.css" />
+    <None Remove="ClientApp\src\app\about\about.component.html" />
+    <None Remove="ClientApp\src\app\about\about.component.spec.ts" />
+    <None Remove="ClientApp\src\app\about\about.component.ts" />
+    <None Remove="ClientApp\src\app\footer\footer.component.html" />
+    <None Remove="ClientApp\src\app\footer\footer.component.scss" />
+    <None Remove="ClientApp\src\app\footer\footer.component.ts" />
+    <None Remove="ClientApp\src\app\home\carousel\carousel.component.html" />
+    <None Remove="ClientApp\src\app\home\carousel\carousel.component.scss" />
+    <None Remove="ClientApp\src\app\home\carousel\carousel.component.ts" />
+    <None Remove="ClientApp\src\app\home\home.component.css" />
+    <None Remove="ClientApp\src\app\services\send-form.service.ts" />
+    <None Remove="ClientApp\src\app\taks\taks.component.css" />
+    <None Remove="ClientApp\src\app\taks\taks.component.html" />
+    <None Remove="ClientApp\src\app\taks\taks.component.spec.ts" />
+    <None Remove="ClientApp\src\app\taks\taks.component.ts" />
+    <None Remove="ClientApp\src\app\work\work.component.css" />
+    <None Remove="ClientApp\src\app\work\work.component.html" />
+    <None Remove="ClientApp\src\app\work\work.component.spec.ts" />
+    <None Remove="ClientApp\src\app\work\work.component.ts" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Bold.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-BoldItalic.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Book.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-BookItalic.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Eight.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-EightItalic.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-ExtraBold.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-ExtraBoldItalic.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-ExtraLight.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-ExtraLightItalic.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Four.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-FourItalic.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Hair.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-HairItalic.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Heavy.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Italic.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Light.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Medium.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Regular.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-SemiBold.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Thin.otf" />
+    <None Remove="ClientApp\src\assets\font\FiraSans-Ultra.otf" />
+    <None Remove="ClientApp\src\assets\img\agencyEuNavBar.jpg" />
+    <None Remove="ClientApp\src\assets\img\agencyEuNavBar.png" />
+    <None Remove="ClientApp\src\assets\img\agencyEuNavBar.psd" />
+    <None Remove="ClientApp\src\assets\img\callUs.png" />
+    <None Remove="ClientApp\src\assets\img\slider\taks.jpg" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
