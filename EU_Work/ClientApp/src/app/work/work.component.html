@@ -24,97 +24,123 @@
       </div>
     </div>
 
-    <div *ngFor="let i of this.service.model.Form.controls['educations']['controls']; let ind = index">
-      <hr />
-      <form [formGroup] = "i"> 
-        <div class="form-row"> 
-          <div class="col-md-6 mb-3">
-            <label for="Institution">Institution</label>
-            <input type="text" class="form-control" id="Institution" formControlName="Institution" >
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="Faculty">Faculty</label>
-            <input type="text" class="form-control" id="Faculty" formControlName="Faculty" >
-          </div>
-        </div>
-        <div class="form-row"> 
-          <div class="col-md-4 mb-2">
-            <label for="Form">Form</label>
-            <select class="form-control" formControlName="Form">
-              <option>Denna</option>
-              <option>Zaochna</option>
-            </select>
-          </div>
-          <div class="col-md-4 mb-2">
-            <label for="Start">Start study</label>
-            <input type="date" class="form-control" id="Start" formControlName="Start">
-          </div>
-          <div class="col-md-4 mb-2">
-            <label for="Stop">Stop study</label>
-            <input type="date" class="form-control" id="Stop" formControlName="Stop">
-          </div>
-          
-          <div class="col align-self-end">
-            <button *ngIf="ind != 0" class="btn btn btn-danger align-self-end" (click)="this.service.rm(ind)" style="margin-bottom: 10px;" >Delete item</button>
-          </div>
-   
-          </div>
-      </form>
+    <div class="form-row">
+      <div class="col-md-8 mb-3">
+        <label for="addres_official">addres_official:</label>
+        <input type="text" class="form-control" id="addres_official" formControlName="addres_official">
+      </div>
     </div>
 
-    <button class="btn btn-primary" (click)="this.service.addEducations()" >add</button>
-    <hr />
+    <div class="form-row">
+      <div class="col-md-8 mb-3">
+        <label for="addres_actual">addres_actual:</label>
+        <input type="text" class="form-control" id="addres_actual" formControlName="addres_actual">
+      </div>
+    </div>
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
-        <label for="validationCustom03">City</label>
-        <input type="text" class="form-control" >
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="validationCustom04">State</label>
-        <input type="text" class="form-control">
+        <label for="phone">phone:</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone">
       </div>
     </div>
 
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" >
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="email">email:</label>
+        <input type="text" class="form-control" id="email" formControlName="email">
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+    </div>
+
+    <div>
+      <div *ngFor="let i of this.service.model.Form.controls['educations']['controls']; let ind = index">
+        <hr />
+        <form [formGroup] = "i"> 
+          <div class="form-row"> 
+            <div class="col-md-6 mb-3">
+              <label for="Institution">Institution</label>
+              <input type="text" class="form-control" id="Institution" formControlName="Institution" >
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="Faculty">Faculty</label>
+              <input type="text" class="form-control" id="Faculty" formControlName="Faculty" >
+            </div>
+          </div>
+          <div class="form-row"> 
+            <div class="col-md-4 mb-2">
+              <label for="Form">Form</label>
+              <select class="form-control" formControlName="Form">
+                <option>Denna</option>
+                <option>Zaochna</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-2">
+              <label for="Start">Start study</label>
+              <input type="date" class="form-control" id="Start" formControlName="Start">
+            </div>
+            <div class="col-md-4 mb-2">
+              <label for="Stop">Stop study</label>
+              <input type="date" class="form-control" id="Stop" formControlName="Stop">
+            </div>
+            
+            <div class="col align-self-end">
+              <button *ngIf="ind != 0" class="btn btn btn-danger align-self-end" (click)="this.service.rm(ind)" style="margin-bottom: 10px;" >Delete item</button>
+            </div>
+    
+            </div>
+        </form>
       </div>
 
-      <div class="form-group">
-        <label for="exampleFormControlSelect2">Example multiple select</label>
-        <select multiple class="form-control" >
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
+      <button class="btn btn-primary" (click)="this.service.addEducations()" >add</button>
+      <hr />
+    </div>
 
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control"  rows="3"></textarea>
-      </div>
-
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-          <label class="form-check-label" for="invalidCheck">
-            Agree to terms and conditions
+    <div class="form-row">
+      <div class="form-check">
+        <div class="col-md-4 mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="officilal_ukr_work_any_time"  formControlName="officilal_ukr_work_any_time">
+          <label class="form-check-label" for="officilal_ukr_work_any_time">
+            officilal_ukr_work_any_time
+          </label>
+        </div>
+        <div class="col-md-4 mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="officilal_eu_work_any_time"  formControlName="officilal_eu_work_any_time">
+          <label class="form-check-label" for="officilal_eu_work_any_time">
+            officilal_eu_work_any_time
+          </label>
+        </div>
+        <div class="col-md-4 mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="officilal_ukr_work_now"  formControlName="officilal_ukr_work_now">
+          <label class="form-check-label" for="officilal_ukr_work_now">
+            officilal_ukr_work_now
+          </label>
+        </div>
+        <div class="col-md-4 mb-2">
+          <input class="form-check-input" type="checkbox" value="" id="officilal_eu_work_now"  formControlName="officilal_eu_work_now">
+          <label class="form-check-label" for="officilal_eu_work_any_time">
+            officilal_eu_work_now
           </label>
         </div>
       </div>
+    </div>
+    
+    <hr>
+
+    <div class="form-group">
+      <label for="about">about</label>
+      <textarea class="form-control"  rows="3" formControlName="about"></textarea>
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <label class="form-check-label" for="invalidCheck">
+          Agree to terms and conditions
+        </label>
+      </div>
+    </div>
 
     <button class="btn btn-primary" type="submit">Submit form</button>
    
