@@ -18,9 +18,7 @@ export class WorkDataService implements OnInit {
       Form: '',
       Start: '',
       Stop: '',
-  }) );
-
-  console.log(this.model.Form.controls['educations']['controls']);
+    }) );
 
   }
 

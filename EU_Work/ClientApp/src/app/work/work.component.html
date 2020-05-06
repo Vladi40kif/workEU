@@ -4,130 +4,131 @@
     <p class="lead">Знайди роботу, забезпеч своє майбутнє.</p>
     <hr class="my-4">
     
-  <form [formGroup]="this.service.model.Form" (submit)="this.service.send()" >
+  <form [formGroup]="this.service.model.Form" >
     
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label>First name</label>
-        <input type="text" class="form-control" formControlName="name">
+        <label>Ім'я<font color="red">*</font>:</label>
+        <input type="text" class="form-control" 
+        [style.border-color]="this.service.model.Form.controls['name'].valid ? '': 'red' " formControlName="name">
       </div>
       <div class="col-md-4 mb-3">
-        <label>Last name</label>
-        <input type="text" class="form-control" formControlName="sname">
+        <label>Прізвище<font color="red">*</font>:</label>
+        <input type="text" class="form-control" 
+        [style.border-color]="this.service.model.Form.controls['sname'].valid ? '': 'red' "  formControlName="sname">
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
-        <label for="birthday">Birthday:</label>
+        <label for="birthday">Дата народження:</label>
         <input type="date" class="form-control" id="birthday" formControlName="bd">
       </div>
     </div>
 
     <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="phone">Телефон<font color="red">*</font></label>
+        <input type="text" class="form-control" [style.border-color]="this.service.model.Form.controls['phone'].valid ? '': 'red' " id="phone" formControlName="phone">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="email">Електронна адреса:</label>
+        <input type="text" class="form-control" [style.border-color]="this.service.model.Form.controls['email'].valid ? '': 'red' " id="email" formControlName="email">
+      </div>
+    </div>
+
+    <div class="form-row">
       <div class="col-md-8 mb-3">
-        <label for="addres_official">addres_official:</label>
+        <label for="addres_official">Адреса:</label>
         <input type="text" class="form-control" id="addres_official" formControlName="addres_official">
       </div>
     </div>
 
-    <div class="form-row">
-      <div class="col-md-8 mb-3">
-        <label for="addres_actual">addres_actual:</label>
-        <input type="text" class="form-control" id="addres_actual" formControlName="addres_actual">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label for="phone">phone:</label>
-        <input type="text" class="form-control" id="phone" formControlName="phone">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label for="email">email:</label>
-        <input type="text" class="form-control" id="email" formControlName="email">
-      </div>
-    </div>
-
-    <div>
-      <div *ngFor="let i of this.service.model.Form.controls['educations']['controls']; let ind = index">
-        <hr />
-        <form [formGroup] = "i"> 
-          <div class="form-row"> 
-            <div class="col-md-6 mb-3">
-              <label for="Institution">Institution</label>
-              <input type="text" class="form-control" id="Institution" formControlName="Institution" >
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="Faculty">Faculty</label>
-              <input type="text" class="form-control" id="Faculty" formControlName="Faculty" >
-            </div>
-          </div>
-          <div class="form-row"> 
-            <div class="col-md-4 mb-2">
-              <label for="Form">Form</label>
-              <select class="form-control" formControlName="Form">
-                <option>Denna</option>
-                <option>Zaochna</option>
-              </select>
-            </div>
-            <div class="col-md-4 mb-2">
-              <label for="Start">Start study</label>
-              <input type="date" class="form-control" id="Start" formControlName="Start">
-            </div>
-            <div class="col-md-4 mb-2">
-              <label for="Stop">Stop study</label>
-              <input type="date" class="form-control" id="Stop" formControlName="Stop">
-            </div>
-            
-            <div class="col align-self-end">
-              <button *ngIf="ind != 0" class="btn btn btn-danger align-self-end" (click)="this.service.rm(ind)" style="margin-bottom: 10px;" >Delete item</button>
-            </div>
-    
-            </div>
-        </form>
-      </div>
-
-      <button class="btn btn-primary" (click)="this.service.addEducations()" >add</button>
+ 
+    <div *ngFor="let i of this.service.model.Form.controls['educations']['controls']; let ind = index">
       <hr />
+      <form [formGroup] = "i"> 
+        <div class="form-row"> 
+          <div class="col-md-6 mb-3">
+            <label for="Institution">Навчальний заклад:</label>
+            <input type="text" class="form-control" id="Institution" formControlName="Institution" >
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Faculty">Факультет:</label>
+            <input type="text" class="form-control" id="Faculty" formControlName="Faculty" >
+          </div>
+        </div>
+        
+        <div class="form-row"> 
+          <div class="col-md-4 mb-2">
+            <label for="Form">Форма навчання:</label>
+            <select class="form-control" formControlName="Form">
+              <option>Денна</option>
+              <option>Заочна</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-2">
+            <label for="Start">Дата початку навчання</label>
+            <input type="date" class="form-control" id="Start" formControlName="Start">
+          </div>
+          <div class="col-md-4 mb-2">
+            <label for="Stop">Дата завершення</label>
+            <input type="date" class="form-control" id="Stop" formControlName="Stop">
+          </div>
+          
+          <div class="col align-self-end">
+            <button *ngIf="ind != 0" class="btn btn-danger align-self-end" (click)="this.service.rm(ind)" style="margin-bottom: 10px;" >Delete item</button>
+          </div>
+  
+          </div>
+      </form>
     </div>
 
+    <button class="btn btn-primary" (click)="this.service.addEducations()" >Добавити освіту</button>
+    <hr />
+ 
+
     <div class="form-row">
-      <div class="form-check">
-        <div class="col-md-4 mb-2">
+      <div class="form-check" style="margin-left: 5px;">
+        
           <input class="form-check-input" type="checkbox" value="" id="officilal_ukr_work_any_time"  formControlName="officilal_ukr_work_any_time">
           <label class="form-check-label" for="officilal_ukr_work_any_time">
-            officilal_ukr_work_any_time
+            Ви були офіційно працевлаштовані в Україні?
           </label>
-        </div>
-        <div class="col-md-4 mb-2">
-          <input class="form-check-input" type="checkbox" value="" id="officilal_eu_work_any_time"  formControlName="officilal_eu_work_any_time">
-          <label class="form-check-label" for="officilal_eu_work_any_time">
-            officilal_eu_work_any_time
-          </label>
-        </div>
-        <div class="col-md-4 mb-2">
+        
+          <br>
+         
           <input class="form-check-input" type="checkbox" value="" id="officilal_ukr_work_now"  formControlName="officilal_ukr_work_now">
           <label class="form-check-label" for="officilal_ukr_work_now">
-            officilal_ukr_work_now
+            Ви офіційно працевлаштовані в Україні зараз?
           </label>
-        </div>
-        <div class="col-md-4 mb-2">
+         
+          <br>
+          <hr>
+        
+          <input class="form-check-input" type="checkbox" value="" id="officilal_eu_work_any_time"  formControlName="officilal_eu_work_any_time">
+          <label class="form-check-label" for="officilal_eu_work_any_time">
+            Ви були офіційно працевлаштовані в ЄС?
+          </label>
+        
+          <br>
+        
+        
           <input class="form-check-input" type="checkbox" value="" id="officilal_eu_work_now"  formControlName="officilal_eu_work_now">
           <label class="form-check-label" for="officilal_eu_work_any_time">
-            officilal_eu_work_now
+            Ви офіційно працевлаштовані в ЄС зараз?
           </label>
-        </div>
+        
       </div>
     </div>
     
     <hr>
 
     <div class="form-group">
-      <label for="about">about</label>
+      <label for="about">Додаткова інформація</label>
       <textarea class="form-control"  rows="3" formControlName="about"></textarea>
     </div>
 
@@ -135,14 +136,19 @@
 
     <div class="form-group">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" formControlName="presonal_data_agree">
         <label class="form-check-label" for="invalidCheck">
-          Agree to terms and conditions
+          Я дозволяю обробляти мої персональні данні<font color="red">*</font>
         </label>
       </div>
     </div>
 
-    <button class="btn btn-primary" type="submit">Submit form</button>
+    <button class="btn btn-primary" 
+    [disabled]="this.service.model.Form.invalid
+    ||!this.service.model.Form.touched
+    ||this.service.model.Form.controls['phone'].value==''
+    ||this.service.model.Form.controls['presonal_data_agree'].value == false
+    " type="submit" (click)="this.service.send()" >Submit form</button>
    
   </form>
   

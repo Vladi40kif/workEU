@@ -11,12 +11,10 @@ export class WorkModel{
     public Form = new FormGroup({
 
         name: new FormControl('', [
-            Validators.minLength(4),
-            Validators.maxLength(24) 
+            Validators.maxLength(50) 
         ]), 
         sname: new FormControl('', [
-            Validators.minLength(4),
-            Validators.maxLength(24)  
+            Validators.maxLength(50)  
         ]),
         bd: new FormControl(),
         educations: new FormArray([this.formBuilder.group({
@@ -28,9 +26,8 @@ export class WorkModel{
         })
         ]),
         addres_official: new FormControl(''),
-        addres_actual: new FormControl(''),
-        phone: new FormControl('', [
-            //Validators.pattern('^(?:\+38)?(?:\(044\)[ .-]?[0-9]{3}[ .-]?[0-9]{2}[ .-]?[0-9]{2}|044[ .-]?[0-9]{3}[ .-]?[0-9]{2}[ .-]?[0-9]{2}|044[0-9]{7})$')
+        phone: new FormControl('+380', [
+            Validators.pattern('^\\+380\\d{3}\\d{2}\\d{2}\\d{2}$')
         ]),
         email: new FormControl('', [ 
             Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$') 
@@ -39,7 +36,8 @@ export class WorkModel{
         officilal_eu_work_any_time: new FormControl(false),
         officilal_ukr_work_now: new FormControl(false),
         officilal_eu_work_now: new FormControl(false),
-        about: new FormControl('')
+        about: new FormControl(''),
+        presonal_data_agree: new FormControl(false)
         
     }); 
 }
