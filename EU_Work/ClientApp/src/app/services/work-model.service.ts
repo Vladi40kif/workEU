@@ -18,6 +18,7 @@ export class WorkModel{
             Validators.minLength(4),
             Validators.maxLength(24)  
         ]),
+        bd: new FormControl(),
         educations: new FormArray([this.formBuilder.group({
             Institution: '',
             Faculty: '',

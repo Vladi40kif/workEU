@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkDataService } from '../services/work-data.service';
-import { FormGroup} from '@angular/forms';
+import { FormGroup, FormArray} from '@angular/forms';
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
@@ -11,6 +11,7 @@ export class WorkComponent implements OnInit {
   constructor(public service: WorkDataService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

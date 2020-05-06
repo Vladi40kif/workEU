@@ -9,21 +9,56 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <label>First name</label>
-        <input type="text" class="form-control" value="Mark" formControlName="name">
+        <input type="text" class="form-control" formControlName="name">
       </div>
       <div class="col-md-4 mb-3">
         <label>Last name</label>
-        <input type="text" class="form-control"  value="Otto">
+        <input type="text" class="form-control" formControlName="sname">
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="birthday">Birthday:</label>
-        <input type="date" class="form-control" id="birthday" name="birthday">
+        <input type="date" class="form-control" id="birthday" formControlName="bd">
       </div>
     </div>
-    
+
+    <div *ngFor="let i of this.service.model.Form.controls['educations']['controls']">
+      <form [formGroup] = "i"> 
+        <div class="form-row"> 
+          <div class="col-md-6 mb-3">
+            <label for="Institution">Institution</label>
+            <input type="text" class="form-control" id="Institution" formControlName="Institution" >
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Faculty">Faculty</label>
+            <input type="text" class="form-control" id="Faculty" formControlName="Faculty" >
+          </div>
+        </div>
+        <div class="form-row"> 
+          <div class="col-md-4 mb-2">
+            <label for="Form">Form</label>
+            <select class="form-control" formControlName="Form">
+              <option>Denna</option>
+              <option>Zaochna</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-2">
+            <label for="Start">Start study</label>
+            <input type="date" class="form-control" id="Start" formControlName="Start">
+          </div>
+          <div class="col-md-4 mb-2">
+            <label for="Stop">Stop study</label>
+            <input type="date" class="form-control" id="Stop" formControlName="Stop">
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <button class="btn btn-primary" (click)="this.service.addEducations()" >add</button>
+ 
+
     <div class="form-row">
       <div class="col-md-6 mb-3">
         <label for="validationCustom03">City</label>
@@ -76,8 +111,7 @@
       </div>
 
     <button class="btn btn-primary" type="submit">Submit form</button>
- 
+   
   </form>
-  <button class="btn btn-primary" (click)="this.service.addEducations()" >add</button>
- 
+  
 </div>
