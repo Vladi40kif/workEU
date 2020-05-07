@@ -32,7 +32,7 @@ namespace EU_Work.Controllers
 
             message.To.Add(new MailboxAddress(_emailConfiguration.DestinationName, _emailConfiguration.DestinationEmail));
             message.From.Add(new MailboxAddress(_emailConfiguration.SmtpUsername, _emailConfiguration.SmtpEmail));
-            message.Subject = "New work form";
+            message.Subject = "New work form from" + data.sname;
 
             message.Body = new TextPart(TextFormat.Plain)
             {
