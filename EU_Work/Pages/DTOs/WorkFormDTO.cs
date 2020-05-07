@@ -10,72 +10,27 @@ namespace EU_Work.Pages.DTOs
 {
     public class WorkFormDTO
     {
-        /*
-
-           {
-              "name":"Valera",
-              "sname":"Didivich",
-              "bd":null,
-              "educations":
-                [{"Institution":"","Faculty":"","Form":"","Start":"","Stop":""}],
-              "addres_official":"fsdfsdfsdf"
-              ,"phone":"+380950019640",
-              "email":"nfk.if@i.ua",
-              "officilal_ukr_work_any_time":true,
-              "officilal_eu_work_any_time":true,
-              "officilal_ukr_work_now":true,
-              "officilal_eu_work_now":false,"about":"",
-              "presonal_data_agree":true
-           }"
-
-              */
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("sname")]
-        public string Sname { get; set; }
-
-        [JsonProperty("bd")]
-        public object Bd { get; set; }
-
-        [JsonProperty("educations")]
-        public Education[] Educations { get; set; }
-
-        [JsonProperty("addres_official")]
-        public string AddresOfficial { get; set; }
-
-        [JsonProperty("phone")]
-        public string Phone { get; set; }
-
-        [JsonProperty("email")]
-        public string Email { get; set; }
-
-        [JsonProperty("officilal_ukr_work_any_time")]
-        public bool OfficilalUkrWorkAnyTime { get; set; }
-
-        [JsonProperty("officilal_eu_work_any_time")]
-        public bool OfficilalEuWorkAnyTime { get; set; }
-
-        [JsonProperty("officilal_ukr_work_now")]
-        public bool OfficilalUkrWorkNow { get; set; }
-
-        [JsonProperty("officilal_eu_work_now")]
-        public bool OfficilalEuWorkNow { get; set; }
-
-        [JsonProperty("about")]
-        public string About { get; set; }
-
-        [JsonProperty("presonal_data_agree")]
-        public bool PresonalDataAgree { get; set; }
-
+        public string name { get; set; }
+        public string sname { get; set; }
+        public object bd { get; set; }
+        public Education[] educations { get; set; }
+        public string addres_official { get; set; }
+        public string phone { get; set; }
+        public string email { get; set; }
+        public bool officilal_ukr_work_any_time { get; set; }
+        public bool officilal_eu_work_any_time { get; set; }
+        public bool officilal_ukr_work_now { get; set; }
+        public bool officilal_eu_work_now { get; set; }
+        public string about { get; set; }
+        public bool presonal_data_agree { get; set; }
         public override string ToString()
         {
             Type objType = this.GetType();
             PropertyInfo[] propertyInfoList = objType.GetProperties();
             StringBuilder result = new StringBuilder();
             foreach (PropertyInfo propertyInfo in propertyInfoList) {
-                if (propertyInfo.Name == "Educations") {
-                    foreach (var ed in Educations)
+                if (propertyInfo.Name == "educations") {
+                    foreach (var ed in educations)
                         result.AppendFormat("{0}: \n{1}\n\n", propertyInfo.Name, ed.ToString());
                     continue;
                 }
@@ -87,19 +42,10 @@ namespace EU_Work.Pages.DTOs
     }
     public partial class Education
     {
-        [JsonProperty("Institution")]
         public string Institution { get; set; }
-
-        [JsonProperty("Faculty")]
         public string Faculty { get; set; }
-
-        [JsonProperty("Form")]
         public string Form { get; set; }
-
-        [JsonProperty("Start")]
         public string Start { get; set; }
-
-        [JsonProperty("Stop")]
         public string Stop { get; set; }
 
         public override string ToString()
