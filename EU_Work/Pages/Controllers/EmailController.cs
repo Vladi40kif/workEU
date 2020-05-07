@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EU_Work.Pages.DTOs;
+using EU_Work.Pages.Email;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,25 +16,23 @@ namespace EU_Work.Controllers
     [ApiController]
     public class EmailController : ControllerBase
     {
-        /// <summary>
-        /// api/Email/
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        [HttpGet]
-        public IActionResult get(   )
+
+        private readonly IEmailConfiguration _emailConfiguration;
+
+        public EmailController(IEmailConfiguration emailConfiguration)
         {
-            return Ok();
+            _emailConfiguration = emailConfiguration;
         }
+
         [HttpPost]
         public IActionResult WorkFormData(WorkFormDTO data)
         {
             string emailBody = string.Empty;
             var message = new MimeMessage();
 
-            message.To.Add(new MailboxAddress("pidr", "nfk.if@i.ua"));
-            message.From.Add(new MailboxAddress("Admin", "workeumail@ukr.net"));
-            message.Subject = "pizdec";
+            message.To.Add(new MailboxAddress(_emailConfiguration.DestinationName, _emailConfiguration.DestinationEmail));
+            message.From.Add(new MailboxAddress(_emailConfiguration.SmtpUsername, _emailConfiguration.SmtpEmail));
+            message.Subject = "New work form";
 
             message.Body = new TextPart(TextFormat.Plain)
             {
@@ -42,13 +41,11 @@ namespace EU_Work.Controllers
   
             using (var emailClient = new SmtpClient())
                 {
-                emailClient.Connect("smtp.ukr.net", 465, true);
-                emailClient.Authenticate("workeumail@ukr.net", "wTkb3TIscVkmNDCT");
+                emailClient.Connect(_emailConfiguration.SmtpServer, _emailConfiguration.SmtpPort, true);
+                emailClient.Authenticate(_emailConfiguration.SmtpEmail, _emailConfiguration.SmtpPassword);
                 emailClient.Send(message);
                 emailClient.Disconnect(true);
             }
-
-            //wTkb3TIscVkmNDCT
 
             return Ok();
         }
