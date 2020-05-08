@@ -1,67 +1,154 @@
-
 <div class="jumbotron">
-  <h1 class="display-4">Taks component!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <h1 class="display-4">Повернення податку</h1>
+  <p class="lead">Багато тексту</p>
   <hr class="my-4">
-  
-<form class="needs-validation" novalidate>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label>First name</label>
-      <input type="text" class="form-control" value="Mark">
+
+  <form [formGroup]="this.service.model.Form">
+
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label>Ім'я<font color="red">*</font>:</label>
+        <input type="text" class="form-control"
+          [style.border-color]="this.service.model.Form.controls['name'].valid ? '': 'red' " formControlName="name">
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label>Прізвище<font color="red">*</font>:</label>
+        <input type="text" class="form-control"
+          [style.border-color]="this.service.model.Form.controls['sname'].valid ? '': 'red' " formControlName="sname">
+      </div>
     </div>
-    <div class="col-md-4 mb-3">
-      <label>Last name</label>
-      <input type="text" class="form-control"  value="Otto">
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="birthday">Дата народження:</label>
+        <input type="date" class="form-control" id="birthday" formControlName="bd">
+      </div>
     </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom03">City</label>
-      <input type="text" class="form-control" placeholder="City">
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="phone">Телефон<font color="red">*</font></label>
+        <input type="text" class="form-control"
+          [style.border-color]="this.service.model.Form.controls['phone'].valid ? '': 'red' " id="phone"
+          formControlName="phone">
+      </div>
     </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationCustom04">State</label>
-      <input type="text" class="form-control" placeholder="State">
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="email">Електронна адреса:</label>
+        <input type="text" class="form-control"
+          [style.border-color]="this.service.model.Form.controls['email'].valid ? '': 'red' " id="email"
+          formControlName="email">
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-      <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+
+    <div *ngFor="let i of this.service.model.Form.controls['Works']['controls']; let ind = index">
+      <hr />
+      <form [formGroup]="i">
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="Country">Країна роботи:</label>
+            <input type="text" class="form-control" id="Country" formControlName="Country">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="AvrSalery">Середня з\п:</label>
+            <input type="text" class="form-control" id="AvrSalery" formControlName="AvrSalery">
+          </div>
+        </div>
+
+        <div class="form-row">
+          
+          <div class="col-md-4 mb-2">
+            <label for="Start">Дата початку роботи</label>
+            <input type="date" class="form-control" id="Start" formControlName="Start">
+          </div>
+          <div class="col-md-4 mb-2">
+            <label for="Stop">Дата завершення</label>
+            <input type="date" class="form-control" id="Stop" formControlName="Stop">
+          </div>
+          <div class="col-md-4 mb-2">
+            
+              <div class="form-check" style="margin-top: 45px;">
+                <input class="form-check-input" type="checkbox" value="" id="OffenThinks"
+                  formControlName="OffenThinks">
+                <label class="form-check-label" for="OffenThinks">
+                  Наявна довідка про доходи
+                </label>
+              </div>
+            
+          </div>
+
+          <div class="col align-self-end">
+            <button *ngIf="ind != 0" class="btn btn-danger align-self-end" (click)="this.service.rm(ind)"
+              style="margin-bottom: 10px;">Видалити країну</button>
+          </div>
+
+        </div>
+      </form>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-        <label class="form-check-label" for="invalidCheck">
-          Agree to terms and conditions
+
+    <button class="btn btn-primary" (click)="this.service.addWorks()">Добавити країну</button>
+    <hr />
+
+
+    <div class="form-row">
+      <div class="form-check" style="margin-left: 5px;">
+
+        <input class="form-check-input" type="checkbox" value="" id="officilal_ukr_work_any_time"
+          formControlName="officilal_ukr_work_any_time">
+        <label class="form-check-label" for="officilal_ukr_work_any_time">
+          Ви були офіційно працевлаштовані в Україні?
+        </label>
+
+        <br>
+
+        <input class="form-check-input" type="checkbox" value="" id="officilal_ukr_work_now"
+          formControlName="officilal_ukr_work_now">
+        <label class="form-check-label" for="officilal_ukr_work_now">
+          Ви офіційно працевлаштовані в Україні зараз?
+        </label>
+
+        <br>
+        <hr>
+
+        <input class="form-check-input" type="checkbox" value="" id="officilal_eu_work_any_time"
+          formControlName="officilal_eu_work_any_time">
+        <label class="form-check-label" for="officilal_eu_work_any_time">
+          Ви були офіційно працевлаштовані в ЄС?
+        </label>
+
+        <br>
+
+
+        <input class="form-check-input" type="checkbox" value="" id="officilal_eu_work_now"
+          formControlName="officilal_eu_work_now">
+        <label class="form-check-label" for="officilal_eu_work_any_time">
+          Ви офіційно працевлаштовані в ЄС зараз?
         </label>
 
       </div>
     </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
-</form>
+
+    <hr>
+
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+          formControlName="presonal_data_agree">
+        <label class="form-check-label" for="invalidCheck">
+          Я дозволяю обробляти мої персональні данні<font color="red">*</font>
+        </label>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="this.service.model.Form.invalid
+  ||!this.service.model.Form.touched
+  ||this.service.model.Form.controls['phone'].value==''
+  ||this.service.model.Form.controls['presonal_data_agree'].value == false
+  " type="submit" (click)="Submit()">Надіслати!</button>
+
+  </form>
+
 </div>

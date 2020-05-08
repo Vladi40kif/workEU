@@ -12,7 +12,7 @@ using MimeKit.Text;
 
 namespace EU_Work.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class EmailController : ControllerBase
     {
@@ -25,28 +25,81 @@ namespace EU_Work.Controllers
         }
 
         [HttpPost]
-        public IActionResult WorkFormData(WorkFormDTO data)
+        [ActionName("taks")]
+        public async Task<IActionResult> TaksFormData(TaksFormDTO data)
+        {
+           
+            string emailBody = string.Empty;
+            var message = new MimeMessage();
+
+            message.To.Add(new MailboxAddress(_emailConfiguration.DestinationName, _emailConfiguration.DestinationEmail));
+            message.From.Add(new MailboxAddress(_emailConfiguration.SmtpUsername, _emailConfiguration.SmtpEmail));
+            message.Subject = "New taks from " + data.sname;
+            try
+            {
+                message.Body = new TextPart(TextFormat.Plain)
+                {
+                    Text = data.ToString()
+                };
+            }
+            catch (Exception)
+            {
+                return BadRequest("server reading form");
+            }
+            try
+            {
+                using (var emailClient = new SmtpClient())
+                {
+                    
+                    await emailClient.ConnectAsync(_emailConfiguration.SmtpServer, _emailConfiguration.SmtpPort, true);
+                    await emailClient.AuthenticateAsync(_emailConfiguration.SmtpEmail, _emailConfiguration.SmtpPassword);
+                    await emailClient.SendAsync(message);
+                    await emailClient.DisconnectAsync(true);
+                }
+            }
+            catch (Exception) {
+                return BadRequest("server error sending");
+            }
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [ActionName("work")]
+        public async Task<IActionResult> WorkFormData(WorkFormDTO data)
         {
             string emailBody = string.Empty;
             var message = new MimeMessage();
 
             message.To.Add(new MailboxAddress(_emailConfiguration.DestinationName, _emailConfiguration.DestinationEmail));
             message.From.Add(new MailboxAddress(_emailConfiguration.SmtpUsername, _emailConfiguration.SmtpEmail));
-            message.Subject = "New work form from" + data.sname;
-
-            message.Body = new TextPart(TextFormat.Plain)
+            message.Subject = "New work form from " + data.sname;
+            try
             {
-                Text = data.ToString()
-            };
-  
-            using (var emailClient = new SmtpClient())
+                message.Body = new TextPart(TextFormat.Plain)
                 {
-                emailClient.Connect(_emailConfiguration.SmtpServer, _emailConfiguration.SmtpPort, true);
-                emailClient.Authenticate(_emailConfiguration.SmtpEmail, _emailConfiguration.SmtpPassword);
-                emailClient.Send(message);
-                emailClient.Disconnect(true);
+                    Text = data.ToString()
+                };
             }
+            catch (Exception)
+            {
+                return BadRequest("server reading form");
+            }
+            try
+            {
+                using (var emailClient = new SmtpClient())
+                {
 
+                    await emailClient.ConnectAsync(_emailConfiguration.SmtpServer, _emailConfiguration.SmtpPort, true);
+                    await emailClient.AuthenticateAsync(_emailConfiguration.SmtpEmail, _emailConfiguration.SmtpPassword);
+                    await emailClient.SendAsync(message);
+                    await emailClient.DisconnectAsync(true);
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest("server error sending");
+            }
             return Ok();
         }
     }
