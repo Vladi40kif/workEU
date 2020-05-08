@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using EU_Work.Pages.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace EU_Work.Pages.DTOs
     {
         public string name { get; set; }
         public string sname { get; set; }
-        public object bd { get; set; }
-        public Education[] educations { get; set; }
+        public string bd { get; set; }
+        virtual public EducationInfo[] educations { get; set; }
         public string addres_official { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
@@ -36,26 +37,6 @@ namespace EU_Work.Pages.DTOs
                 }
                 result.AppendFormat("{0}: {1}\n\n", propertyInfo.Name, propertyInfo.GetValue(this));
             }
-            return result.ToString();
-        }
-
-    }
-    public partial class Education
-    {
-        public string Institution { get; set; }
-        public string Faculty { get; set; }
-        public string Form { get; set; }
-        public string Start { get; set; }
-        public string Stop { get; set; }
-
-        public override string ToString()
-        {
-            Type objType = this.GetType();
-            PropertyInfo[] propertyInfoList = objType.GetProperties();
-            StringBuilder result = new StringBuilder();
-            foreach (PropertyInfo propertyInfo in propertyInfoList)
-                result.AppendFormat("\t{0}: {1}\n", propertyInfo.Name, propertyInfo.GetValue(this));
-
             return result.ToString();
         }
     }
