@@ -4,14 +4,16 @@ using EU_Work.Pages.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EU_Work.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20200510190635_Third")]
+    partial class Third
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,7 +63,7 @@ namespace EU_Work.Migrations
                     b.Property<string>("bd")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("dateTime")
+                    b.Property<DateTime>("dateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("email")
@@ -112,7 +114,7 @@ namespace EU_Work.Migrations
                     b.Property<string>("bd")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("dateTime")
+                    b.Property<DateTime>("dateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("email")

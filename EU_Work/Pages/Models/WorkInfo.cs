@@ -1,5 +1,4 @@
-﻿using EU_Work.Pages.DTOs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,14 +17,17 @@ namespace EU_Work.Pages.Models
         public string Start { get; set; }
         public string Stop { get; set; }
         public bool OffenThinks { get; set; }
+        public TaksForm taksForm { get; set; }
         public override string ToString()
         {
             Type objType = this.GetType();
             PropertyInfo[] propertyInfoList = objType.GetProperties();
             StringBuilder result = new StringBuilder();
-            foreach (PropertyInfo propertyInfo in propertyInfoList)
+            foreach (PropertyInfo propertyInfo in propertyInfoList) {
+                if (propertyInfo.Name == "taksForm")
+                    continue;
                 result.AppendFormat("\t{0}: {1}\n", propertyInfo.Name, propertyInfo.GetValue(this));
-
+            }
             return result.ToString();
         }
     }

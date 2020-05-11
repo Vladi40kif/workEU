@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EU_Work.Pages.DTOs;
 using EU_Work.Pages.Email;
 using EU_Work.Pages.Models;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MimeKit;
 using MimeKit.Text;
 
@@ -31,19 +31,43 @@ namespace EU_Work.Controllers
         [ActionName("taks")]
         public async Task<IActionResult> TaksFormData(TaksForm data)
         {
-            foreach (WorkInfo c in data.Works) {
-                _context.Add<WorkInfo>(c);
+            try
+            {
+
+                foreach (WorkInfo c in data.Works)
+                    c.taksForm = data;
+
+                data.dateTime = DateTime.Now;
+
+                await _context.AddAsync<TaksForm>(data);
+                await _context.SaveChangesAsync();
             }
-         //   _context.Add<TaksForm>(data);
-            await _context.SaveChangesAsync();
+            catch (Exception ex) {
+                return BadRequest(ex);
+            }
 
             return await SendEmail("New TAKS form, by " + data.name, data.ToString());
         }
 
         [HttpPost]
         [ActionName("work")]
-        public async Task<IActionResult> WorkFormData(WorkFormDTO data)
+        public async Task<IActionResult> WorkFormData(WorkForm data)
         {
+            try
+            {
+
+                foreach (EducationInfo c in data.educations)
+                    c.workForm = data;
+
+                data.dateTime = DateTime.Now;
+
+                await _context.AddAsync<WorkForm>(data);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
             return await SendEmail("New WORK form, by "+data.name, data.ToString() );
         }
 

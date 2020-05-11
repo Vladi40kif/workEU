@@ -17,14 +17,18 @@ namespace EU_Work.Pages.Models
         public string Form { get; set; }
         public string Start { get; set; }
         public string Stop { get; set; }
+        public WorkForm workForm { get; set; }
         public override string ToString()
         {
             Type objType = this.GetType();
             PropertyInfo[] propertyInfoList = objType.GetProperties();
             StringBuilder result = new StringBuilder();
             foreach (PropertyInfo propertyInfo in propertyInfoList)
+            {
+                if (propertyInfo.Name == "workForm")
+                    continue;
                 result.AppendFormat("\t{0}: {1}\n", propertyInfo.Name, propertyInfo.GetValue(this));
-
+            }
             return result.ToString();
         }
     }

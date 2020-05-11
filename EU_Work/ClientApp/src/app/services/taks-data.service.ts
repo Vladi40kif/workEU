@@ -29,6 +29,7 @@ export class TaksDataService {
   }
 
   public send() {
+    console.log(this.model.Form.value);
     return this.httpClient.post(this._baseUrl + 'api/Email/taks', this.model.Form.value);
   }
   public rm(ind) {
