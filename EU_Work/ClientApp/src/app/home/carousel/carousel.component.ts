@@ -19,10 +19,10 @@ import { trigger, transition, style, animate } from "@angular/animations";
 })
 export class CarouselComponent implements OnInit {
   public slides = [
-    { src: 'assets/img/slider/work.jpg', title: 'Title 1' },
-    { src: 'assets/img/slider/insurance.jpg', title: 'Title 2' },
-    { src: 'assets/img/slider/passport.jpg', title: 'Title 3' },
-    { src: 'assets/img/slider/taks.jpg', title: 'Title 4' }
+    { src: 'assets/img/slider/work.jpg', url: "/work" },
+    { src: 'assets/img/slider/insurance.jpg', url: "/work" },
+    { src: 'assets/img/slider/passport.jpg', url: "/work" },
+    { src: 'assets/img/slider/taks.jpg', url: "/taks" }
   ];
 
   constructor() { }

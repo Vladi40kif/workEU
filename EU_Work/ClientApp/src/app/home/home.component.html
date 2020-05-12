@@ -1,26 +1,26 @@
 
-<app-carousel class="row justify-content-center" ></app-carousel>
+<div class="">
+  <app-carousel class="row justify-content-center" ></app-carousel>
+</div>
 
 <div class="row">
- <div class="col">
-  <div class="jumbotron h-100" style="font-family: FiraSans-Regular; background-color: white;" >
-    <h1 class="display-5">Знайди роботу в ЄС!</h1>
-      <p class="lead">Заповніть анкету і наші спеціалісти підберуть для вас найкращий варіант розвитку в професійній сфері незважаючи на кордони! </p>
-      <hr class="my-4">
-      <button type="button" class="btn btn-primary btn-lg btn-block">Кнопка блочного уровня</button>
-   
-  </div>
- </div> 
-
-  <div class="col">
-    <div class="jumbotron h-100" style="font-family: FiraSans-Regular; background-color: white;" >
-      <h1 class="display-5">І піди нахуй!!! Курва</h1>
-      
-      <p class="lead">Заповніть анкету і наші спеціалісти підберуть для вас найкращий варіант розвитку в професійній сфері незважаючи на кордони! </p>
-      
+  <div class="col-sm-6 ">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">Знайди роботу в ЄС!</h1>
+        <p class="card-text">Заповніть анкету і наші спеціалісти підберуть для вас найкращий варіант розвитку в професійній сфері незважаючи на кордони!</p>
         <hr class="my-4">
-        <button type="button" class="btn btn-primary btn-lg btn-block justify-">Кнопка блочного уровня</button>
-  
+        <button type="button" class="btn btn-primary btn-lg btn-block " routerLink="/work">Знайти роботу!</button>  
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">Поверни свої податки</h1>
+        <p class="card-text">Якщо ви працювали за кордоном, та оплачували податкові збори, Ви можете повернути частину втрачених коштів.</p>
+        <hr class="my-4">
+        <button type="button" class="btn btn-primary btn-lg btn-block " routerLink="/taks">Повернути податок</button>
     </div>
   </div>
 </div>

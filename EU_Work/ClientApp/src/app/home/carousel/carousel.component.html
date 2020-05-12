@@ -1,6 +1,10 @@
 <div class="carousel" style="margin: 15px;">
     <ng-container *ngFor="let slide of slides; let i = index">
-      <img *ngIf="i === currentSlide" [src]="slide.src" class="slide" @carouselAnimation />
+      <div *ngIf="i === currentSlide">
+        <a [routerLink]="slide.url">
+          <img [src]="slide.src" class="slide" @carouselAnimation />
+        </a>
+      </div>
     </ng-container>
 
     <!-- controls -->
